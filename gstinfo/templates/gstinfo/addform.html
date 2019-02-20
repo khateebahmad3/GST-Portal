@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GST) | Add New Record</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/reg.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<a href="{% url 'gstinfo:user-dashboard' %}">Dashboard</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				{% if request.path == "/gst/user/registrations/addnew/" %}
+					<li>
+						<a target="" href="{% url 'gstinfo:registrations' %}">Registrations</a>
+					</li>
+				{% elif request.path == "/gst/user/returns/addnew/" %}
+					<li>
+						<a target="" href="{% url 'gstinfo:returns' %}">Returns</a>
+					</li>
+				{% endif %}
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<span>Add New</span>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<hr class="separator">
+	<div class="common-form">
+		{% if request.path == "/gst/user/registrations/addnew/" %}
+			<h1 class="blinking">Add new registration data here</h1>
+		{% elif request.path == "/gst/user/returns/addnew/" %}
+			<h1 class="blinking">Add new returns data here</h1>
+		{% endif %}
+		{% if message %}
+        	<h4 style="text-align: center; color: darkred; font-family: sans-serif; font-size: 19px">{{ message }}</h4>
+		{% endif %}
+		<form method="post" novalidate>
+			{% csrf_token %}
+			{{  form.non_field_errors }}
+			<div class="inputs">
+				{% if request.path == "/gst/user/registrations/addnew/" %}
+					<label class="lbl_input" for="trn">Temporary Reference Number</label>
+					{{ form.trn.errors }}
+					{{ form.trn }}<br><br>
+					<label class="lbl_input" for="name">Name</label>
+					{{ form.name }}<br><br>
+					<label class="lbl_input" for="emailid">Email</label>
+					{{ form.email }}<br><br>
+					<label class="lbl_input" for="epassword">Email Password</label>
+					{{ form.epassword }}<br><br>
+					<label class="lbl_input" for="mob">Phone Number</label>
+					{{ form.phone_number }}<br><br>
+					<label class="lbl_input" for="status">Status</label>
+					{{ form.status }}<br><br>
+					<div id="hidden">
+						<label class="lbl_input" for="gstin">GSTIN</label>
+						{{ form.gstin }}<br><br>
+						<label class="lbl_input" for="unm">Username</label>
+						{{ form.username }}<br><br>
+						<label class="lbl_input" for="upassword">Username Password</label>
+						{{ form.upassword }}<br><br>
+					</div>
+				{% elif request.path == "/gst/user/returns/addnew/" %}
+					<label class="lbl_input" for="name">Name</label>
+					{{ form.name }}<br><br>
+					<label class="lbl_input" for="unm">Username</label>
+					{{ form.username }}<br><br>
+					<label class="lbl_input" for="upassword">Username Password</label>
+					{{ form.upassword }}<br><br>
+					<label class="lbl_input" for="mob">Phone Number</label>
+					{{ form.phone_number }}<br><br>
+					<label class="lbl_input" for="emailid">Email</label>
+					{{ form.email }}<br><br>
+					<label class="lbl_input" for="epassword">Email Password</label>
+					{{ form.epassword }}<br><br>
+					<label class="lbl_input" for="status">Month</label>
+					{{ form.month }}<br><br>
+					<label class="lbl_input" for="status">Status</label>
+					{{ form.status }}<br><br>
+				{% endif %}
+			</div>
+			<div id="buttondiv">
+				<button type="submit" name="submit">Submit</button>
+				<button type="reset" name="reset">Reset</button>
+			</div>
+		</form>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

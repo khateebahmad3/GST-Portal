@@ -1,0 +1,81 @@
+.sec1
+{
+	width:100%;
+	min-height:450px!important;
+    background-color: #fff!important;
+}
+.containers
+{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+.row:before, .row:after {
+    content: " ";
+    display: table;
+}
+.ui-card
+{
+	box-shadow: 3px 4px 9px #888888;
+    background: #f8f8f8;
+    padding: 20px;
+}
+.ui-card.pg-center
+{
+    margin: 15% 0% 0%;
+}
+.col-sm-offset-3
+{
+	width: 50%;
+    margin-left: 25%;
+    box-sizing: border-box;
+}
+.ui-card .ui-card-icon p
+{
+    text-align: center;
+}
+p
+{
+	margin: 0px 0px 10px;
+}
+.ui-card-text
+{
+    margin: 5% 0% 0%;
+}
+.ui-card .ui-card-icon p i
+{
+    font-size: 40px;
+    padding: 16px 24px;
+    border-radius: 54%;
+    background-color: #cccccc;
+    color: #fff;
+}
+.ui-card .ui-card-text h4
+{
+    text-align: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ui-card .ui-card-text p
+{
+    margin: 20px 0;
+    font-size: 14px;
+    text-align: center;
+}
+@media (min-width: 1200px){
+.containers {
+    max-width: 1140px;
+}
+}
+@media (min-width: 768px){
+.col-sm-6 {
+    width: 50%;
+}
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GST) | Login</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/login.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<a href="{% url 'gstinfo:user-dashboard' %}">Home</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<span>Login</span>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<hr class="separator">
+	<div ng-app="loginForm">
+		<form ng-controller="validateCtrl" class="frm" name="frmLogin" method="post" action="{% url 'gstinfo:log_in' %}" novalidate>
+			<div id="headings">
+	          <h1 id="head">LOGIN</h1>
+	          {% if message %}
+	            <h3 id="msg">{{ message }} {{ url }}</h3>
+	          {% endif %}
+	        </div>
+			<div class="inputs">
+				{% csrf_token %}
+				<label for="unm"><i class="fa fa-user icon"></i></label>
+				{{ form.username }}<br>
+				<label for="txtPassword"><i class="fa fa-key icon"></i></label>
+				{{ form.password }}
+			</div>
+			<div class="check">
+	          <input type="checkbox" id="showpassword" tabindex="3" onclick="showPassword()">
+	          <i class="fa fa-square" id="iconn" onclick="showPassword()"></i>
+	          <label for="showpassword">Show Password</label>
+	        </div>
+			<div id="buttondiv">
+				<button type="submit" tabindex="4" name="login" id="button1" ng-disabled="frmLogin.username.$invalid || frmLogin.password.$invalid">
+					Login
+				</button>
+			</div>
+		</form>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<title>GST Information Portal(GST) | Session Expired</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/logout.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1 content-pane">
+	&nbsp;
+	<div class="containers">
+		<div class="rows">
+			<div class="col-sm-offset-3 col-sm-6 col-xs-12">
+				<div class="ui-card pg-center">
+					<div class="ui-card-icon">
+						<p>
+							<i class="fas fa-unlock-alt"></i>
+						</p>
+					</div>
+					<div class="ui-card-text">
+						<h4>Your browsing session expired.</h4>
+						<p>Click <a target="_self" href="{% url 'gstinfo:log_in' %}">here</a> to login again. You are requested to close this page for security reasons.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

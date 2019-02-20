@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GST) | Returns Dashboard</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<a href="{% url 'gstinfo:user-dashboard' %}">Dashboard</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<span>Returns</span>
+				</li>
+			</ol>
+		</div>
+		{% if request.path == "/gst/user/returns/" %}
+			<div class="newrow">
+				<a href="{% url 'gstinfo:addform' operation='returns' %}">
+					<button class="btn btn-success">&#43; Add New</button>
+				</a>
+			</div>
+		{% endif %}
+	</div>
+	<hr class="separator">
+	<div class="containers" ng-app="returnsApp">
+		<div class="table" ng-controller="returnsCtrl">
+			<h4>My Returns</h4>
+			<div style="overflow-x: auto;">
+				<table class="returns-table">
+					<tr>
+			            <th ng-click="orderByMe('pk')" class="firstTh">S.No.</th>
+			            <th ng-click="orderByMe('fields.name')">Name</th>
+			            <th ng-click="orderByMe('fields.username')">Username</th>
+			            <th ng-click="orderByMe('fields.upassword')">UPassword</th>
+			            <th ng-click="orderByMe('fields.phone_number')">Phone</th>
+			            <th ng-click="orderByMe('fields.email')">Email</th>
+			            <th ng-click="orderByMe('fields.epassword')">EPassword</th>
+			            <th ng-click="orderByMe('fields.month')">Month</th>
+			            <th ng-click="orderByMe('fields.status')" class="lastTh">Status</th>
+			        </tr>
+					<tr ng-repeat="x in names | orderBy:myOrderBy">
+						<td><span ng-bind="x.pk"></span></td>
+						<td><span ng-bind="x.fields.name"></span></td>
+						<td>
+							<a ng-href="/gst/user/{$process$}/{$x.fields.month$}/{$x.fields.username$}/edit/">
+								<span ng-bind="x.fields.username"></span>
+							</a>
+						</td>
+						<td><span ng-bind="x.fields.upassword"></span></td>
+						<td><span ng-bind="x.fields.phone_number"></span></td>
+						<td><span ng-bind="x.fields.email"></span></td>
+						<td><span ng-bind="x.fields.epassword"></span></td>
+						<td><span ng-bind="x.fields.month"></span></td>
+						<td><span ng-bind="x.fields.status"></span></td>
+					</tr>
+		        	<tr>
+		        		{% if num == 0 or num > 1 %}
+		        			<td colspan="10" class="lasttd">{{ num }} returns found.</td>
+		        		{% else %}
+		        			<td colspan="10" class="lasttd">{{ num }} return found.</td>
+		        		{% endif %}
+		        	</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

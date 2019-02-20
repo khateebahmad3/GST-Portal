@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GST) | Registrations Dashboard</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<a href="{% url 'gstinfo:user-dashboard' %}">Dashboard</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<span>Registrations</span>
+				</li>
+			</ol>
+		</div>
+		{% if request.path == "/gst/user/registrations/" %}
+			<div class="newrow">
+				<a href="{% url 'gstinfo:addform' operation='registrations' %}">
+					<button class="btn btn-success">
+						Add New
+						<i class="fa fa-plus"></i>
+					</button>
+				</a>
+			</div>
+		{% endif %}
+	</div>
+	<hr class="separator">
+	<div class="containers" ng-app="registrationsApp">
+		<div class="table" ng-controller="registrationCtrl">
+			<h4>My Registrations</h4>
+			<div style="overflow-x: auto;">
+				<table class="registrations-table">
+					{% if message %}
+						<tr><td class="message">{{ message }}</td></tr>
+					{% else %}
+						<tr>
+				            <th ng-click="orderByMe('pk')" class="firstTh">S.No.</th>
+				            <th ng-click="orderByMe('fields.trn')">TRN</th>
+				            <th ng-click="orderByMe('fields.name')">Name</th>
+				            <th ng-click="orderByMe('fields.email')">Email ID</th>
+				            <th ng-click="orderByMe('fields.epassword')">EPassword</th>
+				            <th ng-click="orderByMe('fields.phone_number')">Phone</th>
+				            <th ng-click="orderByMe('fields.status')">Status</th>
+				            <th ng-click="orderByMe('fields.gstin')">GSTIN</th>
+				            <th ng-click="orderByMe('fields.username')">Username</th>
+				            <th ng-click="orderByMe('fields.upassword')" class="lastTh">UPassword</th>
+				        </tr>
+						<tr ng-repeat="x in names | orderBy:myOrderBy">
+							<td><span ng-bind="x.pk"></span></td>
+							<td>
+								<a ng-href="/gst/user/registrations/{$x.fields.trn$}/edit/">
+									<span ng-bind="x.fields.trn"></span>
+								</a>
+							</td>
+							<td><span ng-bind="x.fields.name"></span></td>
+							<td><span ng-bind="x.fields.email"></span></td>
+							<td><span ng-bind="x.fields.epassword"></span></td>
+							<td><span ng-bind="x.fields.phone_number"></span></td>
+							<td><span ng-bind="x.fields.status"></span></td>
+							<td><span ng-bind="x.fields.gstin"></span></td>
+							<td><span ng-bind="x.fields.username"></span></td>
+							<td><span ng-bind="x.fields.upassword"></span></td>
+						</tr>
+			        	<tr>
+			        		{% if num > 1 %}
+			        			<td colspan="10" class="lasttd">{{ num }} registrations found.</td>
+			        		{% else %}
+			        			<td colspan="10" class="lasttd">{{ num }} registration found.</td>
+			        		{% endif %}
+			        	</tr>
+			        {% endif %}
+				</table>
+			</div>
+		</div>
+	</div>
+	&nbsp;
+</section>	
+{% endblock %}

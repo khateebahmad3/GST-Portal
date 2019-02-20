@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>Test</title>
+<script src="{% static 'gstinfo/scripts/clock.js' %}"></script>
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="testdata">
+		<p align="center" id="clocks"></p><br>
+		<p id="test"></p>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

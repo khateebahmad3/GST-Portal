@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GSTIP) | User Dashboard</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/dashboard.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<span>Dashboard</span>
+				</li>
+			</ol>
+		</div>
+	</div>
+	<hr class="separator">
+	<div class="container-fluid">
+		<div class="ui-card pg-center">
+			<h2 align="center">Welcome {{ request.user.get_full_name }}</h2>
+			<a class="btn" href="{% url 'gstinfo:registrations' %}">
+				<button class="btn btn-success button">
+					GST Registrations
+					<i class="fas fa-arrow-circle-right"></i>
+				</button>
+			</a>
+			<a class="btn" href="{% url 'gstinfo:returns' %}">
+				<button class="btn btn-success button">
+					GST Returns
+					<i class="fa fa-arrow-circle-right"></i>
+				</button>
+			</a>
+		</div>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

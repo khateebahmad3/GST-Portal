@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<title>GST Information Portal(GST) | Update Registration Status</title>
+<link rel="stylesheet" type="text/css" href="{% static 'gstinfo/css/reg.css' %}">
+{% endblock %}
+
+{% block body %}
+<section class="sec1">
+	&nbsp;
+	<div class="rowss">
+		<div class="col-xs-10">
+			<ol class="breadcrumb">
+				<li>
+					<a href="{% url 'gstinfo:user-dashboard' %}">Dashboard</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<a href="{% url 'gstinfo:registrations' %}">Registrations</a>
+				</li>
+				<li>
+					<i class="fa fa-greater-than"></i>
+				</li>
+				<li>
+					<span>Edit Status</span>
+				</li>
+			</ol>
+		</div>
+		{% if request.path == "/gst/user/registrations/" %}
+			<div class="newrow">
+				<a href="{% url 'gstinfo:addform' %}">
+					<button class="btn btn-success">&#43; Add New</button>
+				</a>
+			</div>
+		{% endif %}
+	</div>
+	<hr class="separator">
+	<div class="common-form">
+		<h1 class="blinking">Update Registration Status</h1>
+		<form method="post">
+			{% csrf_token %}
+			<div class="inputs">
+				<label class="lbl_input" for="trn">Temporary Reference Number</label>
+				{{ form.trn }}<br><br>
+				<label class="lbl_input" for="name">Name</label>
+				{{ form.name }}<br><br>
+				<label class="lbl_input" for="emailid">Email</label>
+				{{ form.email }}<br><br>
+				<label class="lbl_input" for="epassword">Email Password</label>
+				{{ form.epassword }}<br><br>
+				<label class="lbl_input" for="mob">Phone Number</label>
+				{{ form.phone_number }}<br><br>
+				<label class="lbl_input" for="status">Status</label>
+				{% if client.status == "Pending" %}
+					{{ form.status }}<br><br>
+					<div id="hidden">
+						<label class="lbl_input" for="gstin">GSTIN</label>
+						{{ form.gstin }}<br><br>
+						<label class="lbl_input" for="unm">Username</label>
+						{{ form.username }}<br><br>
+						<label class="lbl_input" for="upassword">Username Password</label>
+						{{ form.upassword }}<br><br>
+					</div>
+				{% elif client.status == "Rejected" %}
+					<input type="text" name="status" value="{{ client.status }}" readonly="True">
+					<br><br>
+					<div id="hidden">
+						<label class="lbl_input" for="gstin">GSTIN</label>
+						{{ form.gstin }}<br><br>
+						<label class="lbl_input" for="unm">Username</label>
+						{{ form.username }}<br><br>
+						<label class="lbl_input" for="upassword">Username Password</label>
+						{{ form.upassword }}<br><br>
+					</div>
+				{% else %}
+					<input type="text" name="status" value="{{ client.status }}" readonly="True">
+					<br><br>
+					<label class="lbl_input" for="gstin">GSTIN</label>
+					{{ form.gstin }}<br><br>
+					<label class="lbl_input" for="unm">Username</label>
+					{{ form.username }}<br><br>
+					<label class="lbl_input" for="upassword">Username Password</label>
+					{{ form.upassword }}<br><br>
+				{% endif %}
+			</div>
+			<div id="buttondiv">
+				<button type="submit" name="submit">Submit</button>
+				<button type="reset" name="reset">Reset</button>
+			</div>
+		</form>
+	</div>
+	&nbsp;
+</section>
+{% endblock %}

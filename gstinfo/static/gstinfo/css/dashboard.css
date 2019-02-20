@@ -1,0 +1,142 @@
+/*Dashboard*/
+.sec1
+{
+	width: 100%;
+	height: auto;
+	min-height: 450px;
+}
+.container-fluid h2
+{
+	font-size: 30px;
+	margin: 0px 0px 5% 0px;
+}
+.ui-card.pg-center
+{
+    margin: 3% auto 0%;
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.ui-card.pg-center a
+{
+	flex: 0 0 45%;
+	min-width: 250px;
+	margin: 0%;
+	padding: 0px;
+}
+.ui-card.pg-center a .button
+{
+	width: 80%;
+}
+@media screen and (max-width: 600px){
+	.container-fluid h2
+	{
+		font-size: 21px;
+	}
+	.ui-card.pg-center a
+	{
+		margin: 3% 0%;
+	}
+}
+
+/*Registrations*/
+
+.table
+{
+	margin: 3% auto!important;
+	width: 95%!important;
+	min-width: 250px;
+	height: auto;
+	padding: 10px;
+	border-radius: 15px 15px;
+	box-shadow: 3px 3px 6px 3px rgba(0,0,0,1);
+	font-weight: bold;
+}
+
+.table h4
+{
+	text-align: center;
+	margin: 0% 0% 10px;
+	padding: 0px;
+	color: black;
+	font-size: 25px;
+	text-transform: uppercase;
+}
+
+.registrations-table, .returns-table
+{
+	width: 100%;
+	height: 30%;
+	border: 1px solid black;
+	padding: 0px;
+	border-radius: 10px;
+	border-collapse: separate;
+}
+
+.registrations-table th, .returns-table th
+{
+	background-color: #2c4e86;
+	cursor: pointer;
+	color: white;
+	text-align: center;
+	border: 1px solid black!important;
+	font-size: 17px;
+	font-family: sans-serif;
+	font-weight: bold;
+	padding: 5px 7px!important;
+	vertical-align: middle!important;
+}
+.registrations-table th:hover
+{
+	text-decoration: underline;
+}
+.registrations-table th.firstTh, .returns-table th.firstTh
+{
+	border-top-left-radius: 10px;
+}
+.registrations-table th.lastTh, .returns-table th.lastTh
+{
+	border-top-right-radius: 10px;
+}
+.registrations-table td, .returns-table td
+{
+	border: 1px solid black!important;
+	font-size: 15px;
+	height: 45px;
+	font-family: sans-serif;
+	text-align: center;
+	font-weight: bold;
+	padding: 0px 3px!important;
+	vertical-align: middle!important;
+}
+
+.registrations-table td a, .returns-table td a
+{
+	color: #212529;
+	text-decoration: none;
+}
+
+.registrations-table td a:hover, .returns-table td a:hover
+{
+	color: #007bff;
+	text-decoration: underline;
+}
+
+.registrations-table .lasttd, .returns-table .lasttd
+{
+	border-radius: 0px 0px 10px 10px;
+	font-weight:bold;
+	font-size:15px
+}
+.registrations-table td.message, .returns-table td.message
+{
+	border: 0px!important;
+	height: 200px!important;
+	text-align: center!important;
+	vertical-align: middle!important;
+}
+.newrow a
+{
+	padding: 0px;
+}

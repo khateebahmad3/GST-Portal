@@ -1,0 +1,143 @@
+.frm
+{
+	margin: 5% auto;
+	width: 30%;
+	min-width: 250px;
+	height: auto;
+	padding: 10px;
+	border-radius: 15px 15px;
+	box-shadow: 3px 3px 6px 3px rgba(0,0,0,1);
+	font-weight: bold;
+}
+.login-form
+{
+	width: 100%;
+	height: auto;	
+	margin: 0px auto; 
+}
+.frm input{
+	font-family:sans-serif;
+	background-color:white;
+	width: 79%;
+	height: 46px;
+	margin: 0px auto;
+	padding:15px;
+	box-sizing: border-box;
+	font-size:15px;
+	font-weight: bold;
+	border: 1px solid darkgray;
+	outline: none;
+	border-radius: 0px 5px 5px 0px;
+	line-height: 0px;
+}
+.frm input:focus
+{
+	box-shadow: 0px 0px 3px 1px rgba(180,0,0,1);
+}
+#headings
+{
+	text-align: center;
+}
+#head{
+	margin: 2% 0%;
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;	
+	color: black;
+}
+#msg
+{
+	margin: 2% 0% 0%;
+	background: grey;
+	font-size: 20px;
+	font-weight: normal;
+	text-align: center;	
+	color: darkred;
+}
+#button1{
+	color:white;
+	font-family:sans-serif;
+	text-transform: uppercase;
+	background: #14315D;
+	width: 30%;
+	outline: none;
+	margin: 0px auto 10px;
+	padding: 13px 0px;
+	font-size:15px;
+	cursor: pointer;
+	font-weight: bold;
+	border:0px;
+	border-radius: 5px;
+	transition: background 0.5s ease-in-out;
+}
+button[type=submit]:disabled
+{
+	background: darkgrey!important;
+	cursor: default!important;
+}
+#button1:hover
+{
+	background: #0B1E59;
+}
+#button1:active
+{
+	transform: scale(0.9);
+}
+#showpassword{
+	height: auto;
+	width:auto;
+	display: none;
+}
+#forgotpassword{
+	font-family: sans-serif;
+	width: auto;
+	text-decoration: none;
+	color: white;
+}
+#forgotpassword:hover{
+	color: lightblue;
+	text-decoration: underline;
+}
+.blinking{
+	margin: 0%;
+	font-size: 24px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.icon{
+	padding: 15px;
+  	background: #14315D;
+  	color: white;
+  	min-width: 20px;
+  	text-align: center;
+  	margin-right: -5px;
+  	border-radius: 5px 0px 0px 5px;
+}
+.inputs{
+	margin-top: 3%;
+  	width: 100%;
+  	text-align: center;
+}
+
+label[for=showpassword]{
+	font-family: sans-serif;
+	font-size: 16px;
+	color: black;
+	margin: 0%;
+}
+#buttondiv
+{
+	text-align: center;
+	margin: 3% 0% 0%;
+}
+
+.inputs label
+{
+	margin: 11px 0%;
+}
+.check
+{
+	text-align: center;
+	margin: 3% 0% 0%;
+}

@@ -1,0 +1,36 @@
+.col-sm-6{
+	padding: 0;
+}
+
+.dropdown .nav-link
+{
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.dropdown-menu{
+	margin-top: -1px;
+	width: 100%;
+}
+.dropdown-item{
+	padding: 0.25rem 1rem;
+	text-align: center;
+	box-sizing: border-box;
+}
+.dropdown-item:hover{
+	background-color: #28a745;
+	color: white;
+}
+.dropdown:hover .dropdown-menu{
+	display: block;
+}
+.navbar-toggler:not(:disabled):not(.disabled)
+{
+	outline: none;
+}
+.not-active {
+  pointer-events: none;
+  cursor: default;
+  text-decoration: none;
+  color: lightgrey;
+}
